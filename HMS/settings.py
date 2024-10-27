@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,3 +139,110 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Customs Settings
+# Jazzmin Settings
+JAZZMIN_SETTINGS = {
+    "site_title": "HMS",
+    "site_header": "Welcome to HMS",
+    "site_brand": "HMS",
+    # "site_icon": "assets/logo/favicon.png",
+    # "site_logo": "assets/logo/favicon.png",
+    "welcome_sign": "Welcome To HMS, Login Now",
+    "copyright": "All Right Reserve 2024 - HMS, Login Now",
+    "user_avatar": "images/photos/logo.jpg",
+    "topmenu_links": [
+        {"name": "Home", "url": "admin.index", "permissions": ["auth.view_user"]},
+        {"name": "Company", "url": "/admin/addons/company/"},
+        {"name": "Users", "url": "/admin/addons/company/"},
+
+
+        # {"name": "Dashboard", "url": "home", "permissions": ["auth.view_user"]},
+        # {"model": "auth.User"},
+        {"model": "AUTH_USER_MODEL.User"},
+    ],
+
+    "order_with_respect_to":[
+        "hotel",
+        "hotel.Hotel",
+        "hotel.Room",
+        "hotel.Booking",
+        "hotel.BookingDetails",
+        "hotel.Guest",
+        "hotel.RoomServices",
+        "userauths",
+        "addons",
+    ],
+
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "order_with_respect_to": [
+        "add_model_name_here"
+    ],
+    "icons": {
+        "admin.LogEntry": "fas fa-file",
+
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+
+        "userauths.User": "fas fa-user",
+        "userauths.Profile":"fas fa-address-card",
+
+
+        "hotel.Hotel":"fas fa-th",
+        "hotel.Booking" : "fas fa-calender-week", 
+        "hotel.BookingDetails" : "fas fa-calender-alt",
+        "hotel.Guest" : "fas fa-user",
+        "hotel.Room": "fas fa-bed",
+        "hotel.RoomServices" : "fas fa-user-cog",
+        "hotel.Notification" : "fas fa-bell",
+        "hotel.Coupon" : "fas fa-tag",
+        "hotel.BookMark" : "fas fa-heart",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-arrow-circle-right",
+    "related_modal_active": False,
+    
+    "custom_js": None,
+    "show_ui_builder": True,
+    
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {
+        "auth.user": "collapsible",
+        "auth.group": "vertical_tabs",
+    },
+}
+
+# Jazzmin UI Tweaks
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": True,
+    "brand_small_text": False,
+    "brand_colour": "navbar-indigo",
+    "accent": "accent-olive",
+    "navbar": "navbar-indigo navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-indigo",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "default",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    }
+}
